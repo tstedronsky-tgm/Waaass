@@ -3,8 +3,6 @@ package control;
 
 import gui.ChatGUI;
 import gui.LoginJMS;
-import gui.MailReciveGUI;
-import gui.MailSendGUI;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -12,8 +10,6 @@ import java.awt.event.KeyEvent;
 import javax.jms.Message;
 
 import model.JMSChat;
-import model.JMSMail;
-import model.JMSReceive;
 import model.Model;
 
 /**
@@ -26,8 +22,6 @@ public class MyController implements Controlling {
 	private JMSChat chat;
 	private LoginJMS login;
 	private Model m;
-	private MailSendGUI mailSendGUI;
-	private MailReciveGUI mailReciveGUI;
 	private String ip;
 
 	public MyController() {
@@ -51,17 +45,6 @@ public class MyController implements Controlling {
 				this.ip="127.0.0.1";
 				startChat();
 			}
-		}
-		if(e.getSource().equals(v.getMail1())){
-			mailSendGUI=new MailSendGUI(this);
-		}
-		if(e.getSource().equals(v.getMail2())){
-			mailReciveGUI = new MailReciveGUI(this);
-			mailReciveGUI.setString(new JMSReceive().getTextMessage());
-		}
-		if(e.getActionCommand().equals("sendMail")){
-			new JMSMail(this.ip, mailSendGUI.getIP(), mailSendGUI.getBetreff(),mailSendGUI.getTextMessage());
-			mailSendGUI.dispose();
 		}
 	}
 	

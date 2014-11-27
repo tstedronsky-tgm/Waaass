@@ -25,14 +25,12 @@ import control.Controlling;
  *
  */
 public class ChatGUI extends JFrame {
-	private JButton send_b, sendMail_b, reciveMail_b;
+	private JButton send_b;
 	private Controlling c;
 	private JTextArea receive_t;
-	private JMenuBar menubar;
-	private JMenu menu;
-	private JMenuItem menuItem, menuItem1;
 	public JTextField  messageBox = new JTextField(30);
 	public ChatGUI(Controlling c) {
+		super("Waaass");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 		setSize(600, 400);
@@ -49,26 +47,10 @@ public class ChatGUI extends JFrame {
         JPanel southPanel = new JPanel();
         southPanel.setLayout(new GridBagLayout());
 
-        menubar = new JMenuBar();
-        menu = new JMenu("Mail");
-        menubar.add(menu);
-        menuItem = new JMenuItem("Send Mail");
-        menuItem.addActionListener(c);
-        menu.add(menuItem);
-        menuItem1 = new JMenuItem("Recive Mail");
-        menuItem1.addActionListener(c);
-        menu.add(menuItem1);
+       
         
         messageBox.requestFocusInWindow();
         messageBox.addKeyListener(c);
-        
-        sendMail_b = new JButton("Send Mails");
-        sendMail_b.setActionCommand("sendMail");
-        sendMail_b.addActionListener(this.c);
-        
-        reciveMail_b = new JButton("Recive Mails");
-        reciveMail_b.setActionCommand("reciveMail");
-        reciveMail_b.addActionListener(this.c);
         
         send_b = new JButton("Send Message");
         send_b.setActionCommand("sendMessage");
@@ -98,7 +80,6 @@ public class ChatGUI extends JFrame {
         southPanel.add(send_b, right);
 
         mainPanel.add(BorderLayout.SOUTH, southPanel);
-        mainPanel.add(BorderLayout.NORTH,menubar);
 
         add(mainPanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -135,20 +116,5 @@ public class ChatGUI extends JFrame {
 	 */
 	public JButton getSend_b() {
 		return send_b;
-	}
-	/**
-	 * 
-	 * @return send mail item
-	 */
-	public JMenuItem getMail1(){
-		return this.menuItem;
-	}
-	
-	/**
-	 * 
-	 * @return receive mail item
-	 */
-	public JMenuItem getMail2(){
-		return this.menuItem1;
 	}
 }
