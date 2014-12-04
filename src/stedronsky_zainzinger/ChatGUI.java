@@ -1,4 +1,4 @@
-package gui;
+package stedronsky_zainzinger;
 
 
 import java.awt.BorderLayout;
@@ -17,7 +17,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import control.Controlling;
 
 /**
  * @author Kopec Jakub
@@ -110,11 +109,4 @@ public class ChatGUI extends JFrame {
 		this.messageBox.setText("");
 	}
 	
-	/**
-	 * 
-	 * @return den gedrückten button
-	 */
-	public JButton getSend_b() {
-		return send_b;
-	}
 }
