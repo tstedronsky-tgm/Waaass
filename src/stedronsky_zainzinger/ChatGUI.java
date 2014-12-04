@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 
 
 /**
- * @author Kopec Jakub
+ * @author Zainzinger Lukas
  * @author Stedronsky Thomas
  *
  */
@@ -103,7 +103,7 @@ public class ChatGUI extends JFrame {
 	}
 	
 	/**
-	 * Löscht den Inhalt der MessageBox
+	 * Lï¿½scht den Inhalt der MessageBox
 	 */
 	public void clearSend() {
 		this.messageBox.setText("");

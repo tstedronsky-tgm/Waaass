@@ -1,9 +1,9 @@
-import control.MyController;
+import stedronsky_zainzinger.MyController;
 
 
 /**
- * Klasse die den Chat und das Mail System ausführt
- * @author Kopec Jakub
+ * Klasse die den Chat und das Mail System ausfï¿½hrt
+ * @author Zainzinger Lukas
  * @author Stedronsky Thomas
  */
 public class Main {

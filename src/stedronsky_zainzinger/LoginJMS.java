@@ -1,4 +1,4 @@
-package gui;
+package stedronsky_zainzinger;
 
 
 import java.awt.BorderLayout;
@@ -10,11 +10,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import control.Controlling;
+import stedronsky_zainzinger.Controlling;
 
 /**
  * Login Fenster
- * @author Kopec Jakub
+ * @author Zainzinger Lukas
  * @author Stedronsky Thomas
  */
 public class LoginJMS extends JFrame {
