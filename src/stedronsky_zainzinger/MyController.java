@@ -33,8 +33,8 @@ public class MyController implements Controlling {
 	}
 	
 	/**
-	 * Wenn eine NAchricht gesendet wurde wird refreshed
-	 * @param Die mEssage
+	 * Wenn eine Nachricht gesendet wurde wird refreshed
+	 * @param Die Message
 	 */
 	public void onMessage(Message mes) {	
 	}
@@ -43,7 +43,7 @@ public class MyController implements Controlling {
 	}
 	
 	/**
-	 * Mittes Enter wird gesendet
+	 * Mittels Enter wird gesendet
 	 * @param die Gedr�ckte Taste
 	 */
 	public void keyPressed(KeyEvent e) {

@@ -69,7 +69,7 @@ public class LoginJMS extends JFrame {
 	}
 	public void setDefault(){
 		this.ip.setText("localhost");
-		this.userName.setText("Jakub");
+		this.userName.setText("Thomas");
 		this.topic.setText("topic");
 	}
 	/**

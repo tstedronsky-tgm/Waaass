@@ -96,14 +96,43 @@ public class ChatGUI extends JFrame {
 	}
 	/**
 	 * 
-	 * @return den Text der Message Box
+	 * @return den Text der Message Box in Großbuchstaben
 	 */
 	public String getText() {
-		return messageBox.getText();
+		return badwordFilter(messageBox.getText().toUpperCase());
 	}
 	
 	/**
-	 * L�scht den Inhalt der MessageBox
+	 * Badword-Filter
+	 * @param text String
+	 * @return Text ohne "bösen" Worten
+	 */
+	public String badwordFilter(String text){
+		String[] bad = {"ARSCHLOCH", "IDIOT", "HURE", "SEW"};
+		String ntext = "", xy = "";
+		for(int i = 0; i < text.length(); i++){
+			if(text.charAt(i) != ' '){
+				xy += text.charAt(i);
+			}else if(text.charAt(i) == ' '){
+				for(int j=0; j<bad.length;j++){
+					if(xy == bad[j]){
+						for(int k = 0; k < xy.length();k++){
+							ntext += "*";
+						}
+					}else{
+						ntext += xy;
+						xy = "";
+					}
+				}
+			}
+		}
+		
+		
+		return ntext;
+	}
+	
+	/**
+	 * Loescht den Inhalt der MessageBox
 	 */
 	public void clearSend() {
 		this.messageBox.setText("");
