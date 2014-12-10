@@ -22,7 +22,7 @@ import javax.swing.JTextField;
  */
 @SuppressWarnings("restriction")
 public class ChatGUI extends JFrame {
-	private JButton send_b;
+	private JButton send_b, badword;
 	private Controlling c;
 	private JTextArea receive_t;
 	public JTextField  messageBox = new JTextField(30);
@@ -44,7 +44,8 @@ public class ChatGUI extends JFrame {
         JPanel southPanel = new JPanel();
         southPanel.setLayout(new GridBagLayout());
 
-       
+        JPanel northPanel = new JPanel();
+        northPanel.setLayout(new GridBagLayout());
         
         messageBox.requestFocusInWindow();
         messageBox.addKeyListener(c);
@@ -52,6 +53,10 @@ public class ChatGUI extends JFrame {
         send_b = new JButton("Send Message");
         send_b.setActionCommand("sendMessage");
         send_b.addActionListener(this.c);
+        
+        badword = new JButton("Badwordfilter: ON");
+        badword.setActionCommand("bword");
+        badword.addActionListener(this.c);
 
         receive_t = new JTextArea();
         receive_t.setEditable(false);
@@ -75,8 +80,11 @@ public class ChatGUI extends JFrame {
 
         southPanel.add(messageBox, left);
         southPanel.add(send_b, right);
+        
+        northPanel.add(badword, left);
 
         mainPanel.add(BorderLayout.SOUTH, southPanel);
+        mainPanel.add(BorderLayout.NORTH, northPanel);
 
         add(mainPanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

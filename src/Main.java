@@ -2,7 +2,7 @@ import stedronsky_zainzinger.MyController;
 
 
 /**
- * Klasse die den Chat und das Mail System ausf�hrt
+ * Klasse die den Chat und das Mail System ausfuehrt
  * @author Zainzinger Lukas
  * @author Stedronsky Thomas
  */

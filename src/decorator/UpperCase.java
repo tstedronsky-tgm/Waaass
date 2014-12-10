@@ -1,7 +1,7 @@
 package decorator;
 
 /**
- * Decorator die den text verdoppelt und vergrößert
+ * Decorator die den text verdoppelt und vergroessert
  * @author Stedronsky Thomas
  *
  */
@@ -9,7 +9,7 @@ public class UpperCase implements EditText{
 
 	/**
 	 * Edit Methode 
-	 * @return den Veränderten text
+	 * @return den Veraenderten text
 	 */
 	@Override
 	public String edit(String text) {

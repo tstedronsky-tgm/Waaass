@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
 import javax.jms.Message;
+import javax.swing.JButton;
 
 import decorator.*;
 import stedronsky_zainzinger.Model;
@@ -32,14 +33,26 @@ public class MyController implements Controlling {
 		v = new ChatGUI(this);
 	}
 	public void actionPerformed(ActionEvent e) {
-		uc= new UpperCase();
-		bw = new BadWord();
-		String back="";
-		String text=v.getText();
-		if(badword==true)back+=bw.edit(text);
-		back+=uc.edit(text);
-		v.setText(back);
-		v.clearSend();
+		if(e.getActionCommand()=="sendMessage"){
+			uc= new UpperCase();
+			bw = new BadWord();
+			String back="";
+			String text=v.getText();
+			if(badword==true)back+=bw.edit(text);
+			back+=uc.edit(text);
+			v.setText(back);
+			v.clearSend();
+		}else if(e.getActionCommand()=="bword"){
+			if(badword==true){
+				badword = false;
+				JButton x =(JButton)e.getSource();
+				x.setText("Badwordfilter: OFF");
+			}else{
+				badword = true;
+				JButton x =(JButton)e.getSource();
+				x.setText("Badwordfilter: ON");
+			}
+		}
 	}
 
 	/**
@@ -63,7 +76,7 @@ public class MyController implements Controlling {
 		if(e.getKeyCode()==KeyEvent.VK_ENTER){
 			String text=v.getText();
 			if(badword==true)back+=bw.edit(text);
-			back+=uc.edit(text);
+			back=uc.edit(back);
 			v.setText(back);
 			v.clearSend();
 		}
