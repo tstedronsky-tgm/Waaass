@@ -9,9 +9,6 @@ import java.awt.Insets;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -23,6 +20,7 @@ import javax.swing.JTextField;
  * @author Stedronsky Thomas
  *
  */
+@SuppressWarnings("restriction")
 public class ChatGUI extends JFrame {
 	private JButton send_b;
 	private Controlling c;
@@ -99,36 +97,15 @@ public class ChatGUI extends JFrame {
 	 * @return den Text der Message Box in Großbuchstaben
 	 */
 	public String getText() {
-		return badwordFilter(messageBox.getText().toUpperCase());
+		return this.messageBox.getText();
 	}
 	
 	/**
-	 * Badword-Filter
-	 * @param text String
-	 * @return Text ohne "bösen" Worten
+	 * 
 	 */
-	public String badwordFilter(String text){
-		String[] bad = {"ARSCHLOCH", "IDIOT", "HURE", "SEW"};
-		String ntext = "", xy = "";
-		for(int i = 0; i < text.length(); i++){
-			if(text.charAt(i) != ' '){
-				xy += text.charAt(i);
-			}else if(text.charAt(i) == ' '){
-				for(int j=0; j<bad.length;j++){
-					if(xy == bad[j]){
-						for(int k = 0; k < xy.length();k++){
-							ntext += "*";
-						}
-					}else{
-						ntext += xy;
-						xy = "";
-					}
-				}
-			}
-		}
-		
-		
-		return ntext;
+	public void setText(String text){
+		String xy=this.receive_t.getText()+"\n"+text;
+		this.receive_t.setText(xy);
 	}
 	
 	/**
