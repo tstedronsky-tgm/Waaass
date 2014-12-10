@@ -11,14 +11,14 @@ public class BadWord implements EditText{
 	 */
 	@Override
 	public String edit(String text) {
-		String oldText = text.toUpperCase();
+		String oldText = text.toLowerCase();
 		String newText="";
 		String[] array = oldText.split(" ");
-		String[] badwords = {"Arschloch", "Hure", "Arsch"};
+		String[] badwords = {"arschloch", "hure", "arsch"};
 		
 		for(int i=0; i<array.length; i++){
 			for(int j=0; j<badwords.length; j++){
-				if(array[i].equals(badwords[j].toUpperCase())){
+				if(array[i].equals(badwords[j].toLowerCase())){
 					array[i]="*****";
 				}
 			}

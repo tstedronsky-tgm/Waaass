@@ -21,46 +21,66 @@ import stedronsky_zainzinger.Model;
 public class MyController implements Controlling {
 	private ChatGUI v;
 	private LoginJMS login;
+	private JMSChat chat;
 	private Model m;
 	private String ip;
 	private UpperCase uc;
 	private BadWord bw;
 	private boolean badword=true;
 	public MyController() {
-		startChat();
+		login = new LoginJMS(this);
 	}
 	public void startChat() {
 		v = new ChatGUI(this);
+		m = new Model(chat, v, login);
+		chat = m.login(this);
 	}
 	public void actionPerformed(ActionEvent e) {
+		if(e.getActionCommand().equals("bword")){
+			if(badword==true){
+				v.setBad("BWORD OFF");
+				badword=false;
+			}
+			else {
+				v.setBad("BWORD ON");
+				badword=true;
+			}
+		}
+		
 		if(e.getActionCommand()=="sendMessage"){
 			uc= new UpperCase();
 			bw = new BadWord();
 			String back="";
 			String text=v.getText();
-			if(badword==true)back+=bw.edit(text);
-			back+=uc.edit(text);
-			v.setText(back);
-			v.clearSend();
-		}else if(e.getActionCommand()=="bword"){
-			if(badword==true){
-				badword = false;
-				JButton x =(JButton)e.getSource();
-				x.setText("Badwordfilter: OFF");
+			if((v!=null) && e.getSource().equals(v.getSend_b())) {
+				if(badword==true){
+					back=bw.edit(text);
+				}else {
+					back=uc.edit(text);
+				}
+				m.sendMessage(back);
+			}
+		}
+		else if(e.getSource().equals(login.getLogin())){
+			if(!((login.getIp().getText().equals(""))) && !((login.getUserName().getText().equals(""))) && !((login.getTopic().getText().equals("")))){
+				this.ip=login.getIp().getText();
+				startChat();
 			}else{
-				badword = true;
-				JButton x =(JButton)e.getSource();
-				x.setText("Badwordfilter: ON");
+				login.setDefault();
+				this.ip="127.0.0.1";
+				startChat();
 			}
 		}
 	}
 
 	/**
-	 * Wenn eine Nachricht gesendet wurde wird refreshed
-	 * @param Die Message
+	 * Wenn eine NAchricht gesendet wurde wird refreshed
+	 * @param Die mEssage
 	 */
-	public void onMessage(Message mes) {	
+	public void onMessage(Message mes) {
+		m.refresh(mes);	
 	}
+
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 	}
@@ -70,15 +90,17 @@ public class MyController implements Controlling {
 	 * @param die Gedr�ckte Taste
 	 */
 	public void keyPressed(KeyEvent e) {
-		uc= new UpperCase();
-		bw = new BadWord();
-		String back="";
 		if(e.getKeyCode()==KeyEvent.VK_ENTER){
+			uc= new UpperCase();
+			bw = new BadWord();
+			String back="";
 			String text=v.getText();
-			if(badword==true)back+=bw.edit(text);
-			back=uc.edit(back);
-			v.setText(back);
-			v.clearSend();
+			if(badword==true){
+				back=bw.edit(text);
+			}else {
+				back=uc.edit(text);
+			}
+			m.sendMessage(back);
 		}
 	}
 	public void keyReleased(KeyEvent e) {

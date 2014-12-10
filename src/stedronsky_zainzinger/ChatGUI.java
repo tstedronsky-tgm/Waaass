@@ -54,7 +54,7 @@ public class ChatGUI extends JFrame {
         send_b.setActionCommand("sendMessage");
         send_b.addActionListener(this.c);
         
-        badword = new JButton("Badwordfilter: ON");
+        badword = new JButton("BWORD: ON");
         badword.setActionCommand("bword");
         badword.addActionListener(this.c);
 
@@ -121,6 +121,21 @@ public class ChatGUI extends JFrame {
 	 */
 	public void clearSend() {
 		this.messageBox.setText("");
+	}
+	
+	/**
+	 * 
+	 * @return den gedrückten button
+	 */
+	public JButton getSend_b() {
+		return send_b;
+	}
+	
+	/**
+	 * 
+	 */
+	public void setBad(String text){
+		this.badword.setText(text);
 	}
 	
 }
