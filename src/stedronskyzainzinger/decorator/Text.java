@@ -1,4 +1,4 @@
-package decorator;
+package stedronskyzainzinger.decorator;
 
 public class Text implements EditText{
 	

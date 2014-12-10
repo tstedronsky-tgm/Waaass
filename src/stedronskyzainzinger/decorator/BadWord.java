@@ -1,4 +1,4 @@
-package decorator;
+package stedronskyzainzinger.decorator;
 
 import java.util.LinkedList;
 

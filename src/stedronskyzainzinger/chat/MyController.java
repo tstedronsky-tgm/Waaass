@@ -1,8 +1,8 @@
-package stedronsky_zainzinger;
+package stedronskyzainzinger.chat;
 
 
-import stedronsky_zainzinger.ChatGUI;
-import stedronsky_zainzinger.LoginJMS;
+import stedronskyzainzinger.chat.ChatGUI;
+import stedronskyzainzinger.chat.LoginJMS;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -10,8 +10,8 @@ import java.awt.event.KeyEvent;
 import javax.jms.Message;
 import javax.swing.JButton;
 
-import decorator.*;
-import stedronsky_zainzinger.Model;
+import stedronskyzainzinger.decorator.*;
+import stedronskyzainzinger.chat.Model;
 
 /**
  * 

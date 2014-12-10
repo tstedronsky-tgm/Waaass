@@ -1,4 +1,4 @@
-package stedronsky_zainzinger;
+package stedronskyzainzinger.chat;
 
 
 import javax.jms.JMSException;

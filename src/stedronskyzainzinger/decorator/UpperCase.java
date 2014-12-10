@@ -1,4 +1,4 @@
-package decorator;
+package stedronskyzainzinger.decorator;
 
 /**
  * Decorator die den text verdoppelt und vergroessert

@@ -1,4 +1,4 @@
-package stedronsky_zainzinger;
+package stedronskyzainzinger.chat;
 
 
 import java.awt.BorderLayout;
@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import stedronsky_zainzinger.Controlling;
+import stedronskyzainzinger.chat.Controlling;
 
 /**
  * Login Fenster

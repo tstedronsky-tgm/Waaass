@@ -1,5 +1,4 @@
-package stedronsky_zainzinger;
-
+package stedronskyzainzinger.chat;
 
 import java.net.Inet4Address;
 

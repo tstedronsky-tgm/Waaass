@@ -1,4 +1,5 @@
-import stedronsky_zainzinger.MyController;
+package stedronskyzainzinger;
+import stedronskyzainzinger.chat.MyController;
 
 
 /**
